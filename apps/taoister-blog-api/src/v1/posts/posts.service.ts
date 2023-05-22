@@ -1,4 +1,3 @@
-import { POST_SORT_BY_ENUM } from './../../../../../libs/common/src/dto/sort.dto';
 import { Injectable } from '@nestjs/common';
 import { FindPostDto } from 'apps/taoister-blog-api/src/v1/posts/dto/find-post.dto';
 import { DbService } from '@libs/db';
@@ -8,7 +7,6 @@ import {
 } from '@libs/common/constants/pagination';
 import { POST_SORT_BY_ENUM } from '@libs/common/dto/sort.dto';
 import { Prisma } from '@prisma/client';
-import { create } from 'domain';
 import {
   IS_DELETED_ENUM,
   IS_PUBLISHED_ENUM,
@@ -66,7 +64,7 @@ export class PostsService {
       skip: offset, // 偏移
       take: limit, // 數量
       // 篩選字段
-      // content是內容，返回作爲列表太浪費了
+      // content是內容，返回作爲列表
       select: {
         id: true,
         title: true,
