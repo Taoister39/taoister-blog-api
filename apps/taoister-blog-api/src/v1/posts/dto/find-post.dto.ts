@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsOptional, IsString } from 'class-validator';
 
 export class FindPostDto extends PostSortPaginationDto {
-  @IsOptional()
+  @IsOptional() // 屬性是可選的
   @IsString()
   @ApiProperty({
     description: '文章id',
