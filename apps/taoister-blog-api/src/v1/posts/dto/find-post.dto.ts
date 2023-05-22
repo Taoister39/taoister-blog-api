@@ -5,11 +5,17 @@ import { IsOptional, IsString } from 'class-validator';
 export class FindPostDto extends PostSortPaginationDto {
   @IsOptional()
   @IsString()
-  @ApiProperty()
+  @ApiProperty({
+    description: '文章id',
+    required: false,
+  })
   readonly id?: string;
 
   @IsOptional()
   @IsString()
-  @ApiProperty()
+  @ApiProperty({
+    description: '文章標題',
+    required: false,
+  })
   readonly title?: string;
 }
