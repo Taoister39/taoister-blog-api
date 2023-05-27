@@ -7,7 +7,7 @@ export enum SORT_BY_ENUM {
   CREATED_TIME = 'CREATED_TIME',
   UPDATED_TIME = 'UPDATED_TIME',
 }
-// 排序
+// 文章排序
 export enum POST_SORT_BY_ENUM {
   CREATED_TIME = 'CREATED_TIME',
   UPDATED_TIME = 'UPDATED_TIME',
@@ -25,6 +25,28 @@ export class SortDto {
   })
   readonly sortBy?: SORT_BY_ENUM;
 
+  @IsOptional()
+  @IsEnum(Prisma.SortOrder)
+  @ApiProperty({
+    description: '正序倒序，默認desc',
+    default: Prisma.SortOrder.desc,
+    required: false,
+    enum: Prisma.SortOrder,
+  })
+  readonly order?: Prisma.SortOrder;
+}
+
+export class PostSortDto {
+  @IsOptional()
+  @IsEnum(POST_SORT_BY_ENUM)
+  @ApiProperty({
+    description: '按什麼類型排序，默認是createTime',
+    default: POST_SORT_BY_ENUM.CREATED_TIME,
+    type: POST_SORT_BY_ENUM,
+    required: false,
+    enum: POST_SORT_BY_ENUM,
+  })
+  readonly sortBy: POST_SORT_BY_ENUM;
   @IsOptional()
   @IsEnum(Prisma.SortOrder)
   @ApiProperty({
