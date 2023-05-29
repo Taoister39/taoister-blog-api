@@ -4,9 +4,11 @@ import { AdminService } from './admin.service';
 import { AboutModule } from './about/about.module';
 import { ConfigModule } from '@libs/config';
 import { DbModule } from '@libs/db';
+import { AuthModule } from './auth/auth.module';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
-  imports: [ConfigModule, DbModule, AboutModule],
+  imports: [ConfigModule, DbModule, AboutModule, AuthModule, ProfileModule],
   controllers: [AdminController],
   providers: [AdminService],
 })
