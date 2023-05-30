@@ -6,6 +6,7 @@ import { Response } from 'express';
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
+  // 默認非對象返回 text/html
   @Get()
   getHello(@Res() response: Response) {
     return response.status(200).json(this.adminService.getHello());

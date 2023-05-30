@@ -6,9 +6,17 @@ import { ConfigModule } from '@libs/config';
 import { DbModule } from '@libs/db';
 import { AuthModule } from './auth/auth.module';
 import { ProfileModule } from './profile/profile.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [ConfigModule, DbModule, AboutModule, AuthModule, ProfileModule],
+  imports: [
+    ConfigModule,
+    DbModule,
+    AboutModule,
+    AuthModule,
+    ProfileModule,
+    UsersModule,
+  ],
   controllers: [AdminController],
   providers: [AdminService],
 })

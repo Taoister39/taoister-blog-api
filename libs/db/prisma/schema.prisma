@@ -131,6 +131,8 @@ model Profile {
   email     String?
   // 网站链接
   site      String?
+  // 推特鏈接
+  twitter   String?
   // 创建时间
   createdAt DateTime @default(now())
   // 更新时间
