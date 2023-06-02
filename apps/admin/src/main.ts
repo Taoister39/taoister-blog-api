@@ -21,7 +21,10 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);
 
-  app.enableCors();
+  app.enableCors({
+    origin: process.env.CROS_ORIGIN,
+    credentials: true,
+  });
   await app.listen(process.env.ADMIN_PORT);
 
   logger.log(`Server is running at ${ADMIN_API}`, `LOOK AT ME ->->`);
