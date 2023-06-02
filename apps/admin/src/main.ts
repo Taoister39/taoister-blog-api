@@ -15,8 +15,8 @@ async function bootstrap() {
   const options = new DocumentBuilder()
     .setTitle('Taoister Blog Api')
     .setDescription('乾坤道長的個人博客api文檔')
-    .addBearerAuth()
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('docs', app, document);

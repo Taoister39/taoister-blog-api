@@ -10,10 +10,11 @@ import {
 import { AboutService } from './about.service';
 import { CreateAboutDto } from './dto/create-about.dto';
 import { UpdateAboutDto } from './dto/update-about.dto';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller('about')
 @ApiTags('關於')
+@ApiBearerAuth()
 export class AboutController {
   constructor(private readonly aboutService: AboutService) {}
 
