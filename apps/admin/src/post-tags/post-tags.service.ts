@@ -13,7 +13,7 @@ import { Prisma } from '@prisma/client';
 export class PostTagsService {
   async findMany(findPostTagDto: FindPostTagDto) {
     const {
-      id: paramId,
+      id,
       name,
       isDeleted,
       limit = DEFAULT_LIMIT,
@@ -22,7 +22,7 @@ export class PostTagsService {
       order = Prisma.SortOrder.desc,
     } = findPostTagDto;
 
-    const id = paramId.trim();
+    // const id = paramId?.trim();
 
     let createdAt: Prisma.SortOrder, updatedAt: Prisma.SortOrder;
 

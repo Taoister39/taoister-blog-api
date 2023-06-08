@@ -14,7 +14,7 @@ export class PostCategoriesService {
   async findMany(findPostCategoryDto: FindPostCategoryDto) {
     const {
       name,
-      id: paramId,
+      id,
       isDeleted,
       offset = DEFAULT_OFFSET,
       limit = DEFAULT_LIMIT,
@@ -22,7 +22,7 @@ export class PostCategoriesService {
       order = Prisma.SortOrder.desc,
     } = findPostCategoryDto;
 
-    const id = paramId.trim();
+    // const id = paramId.trim();
 
     let createdAt: Prisma.SortOrder, updatedAt: Prisma.SortOrder;
 
@@ -60,7 +60,7 @@ export class PostCategoriesService {
     return { total: total ?? 0, lists: result };
   }
   create(createPostCategoriesDto: CreatePostCategoryDto) {
-    this.dbService.postCategory.create({
+    return this.dbService.postCategory.create({
       data: { ...createPostCategoriesDto },
     });
   }

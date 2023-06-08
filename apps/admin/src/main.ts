@@ -8,7 +8,15 @@ import { TransformInterceptor } from '@libs/common/interceptor/transform.interce
 async function bootstrap() {
   const app = await NestFactory.create(AdminModule);
 
-  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      transformOptions: {
+        // 查詢參數可以轉換成數字，根據ts類型
+        enableImplicitConversion: true,
+      },
+    }),
+  );
 
   app.useGlobalInterceptors(new TransformInterceptor());
 
