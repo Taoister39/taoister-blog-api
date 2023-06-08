@@ -9,13 +9,14 @@ import {
   Delete,
 } from '@nestjs/common';
 import { PostsService } from './posts.service';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CreatePostDto } from 'apps/admin/src/posts/dto/create-post.dto';
 import { FindPostDto } from 'apps/admin/src/posts/dto/find-post.dto';
 import { UpdatePostDto } from 'apps/admin/src/posts/dto/update-post.dto';
 
 @Controller('v1/posts')
 @ApiTags('文章')
+@ApiBearerAuth()
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
@@ -46,6 +47,6 @@ export class PostsController {
   @ApiOperation({ summary: '根據id進行真刪除' })
   @Delete(':id')
   delete(@Param('id') id: string) {
-    return this.postsService.remove(id);
+    return this.postsService.delete(id);
   }
 }

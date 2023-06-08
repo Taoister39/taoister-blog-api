@@ -9,7 +9,6 @@ import { ProfileModule } from './profile/profile.module';
 import { UsersModule } from './users/users.module';
 import { JwtAuthGuard } from 'apps/admin/src/auth/guard/jwt-auth.guard';
 import { APP_GUARD } from '@nestjs/core';
-import { PostModule } from './post/post.module';
 import { PostsModule } from './posts/posts.module';
 
 @Module({
@@ -20,7 +19,6 @@ import { PostsModule } from './posts/posts.module';
     AuthModule,
     ProfileModule,
     UsersModule,
-    PostModule,
     PostsModule,
   ],
   controllers: [AdminController],

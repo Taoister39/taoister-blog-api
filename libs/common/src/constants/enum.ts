@@ -16,3 +16,8 @@ export enum POST_TYPE_ENUM {
   // 原创
   ORIGINAL = 'ORIGINAL',
 }
+
+export enum CODE_ENUM {
+  SUCCESS,
+  FAIL,
+}

@@ -3,11 +3,14 @@ import { NestFactory } from '@nestjs/core';
 import { AdminModule } from './admin.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ADMIN_API, ADMIN_API_DOCS } from '@libs/common/constants/path';
+import { TransformInterceptor } from '@libs/common/interceptor/transform.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AdminModule);
 
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
+
+  app.useGlobalInterceptors(new TransformInterceptor());
 
   const logger = new Logger();
 

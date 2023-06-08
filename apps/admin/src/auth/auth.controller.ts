@@ -6,7 +6,6 @@ import { LoginDto } from 'apps/admin/src/auth/dto/login.dto';
 
 @Controller('auth')
 @ApiTags('驗證賬號（管理員）')
-@ApiBearerAuth()
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 

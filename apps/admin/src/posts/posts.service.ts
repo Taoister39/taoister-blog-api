@@ -13,7 +13,7 @@ import { UpdatePostDto } from 'apps/admin/src/posts/dto/update-post.dto';
 
 @Injectable()
 export class PostsService {
-  remove(id: string) {
+  delete(id: string) {
     return this.dbService.post.delete({ where: { id } });
   }
   update(id: string, updatePostDto: UpdatePostDto) {
