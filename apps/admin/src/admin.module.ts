@@ -10,6 +10,8 @@ import { UsersModule } from './users/users.module';
 import { JwtAuthGuard } from 'apps/admin/src/auth/guard/jwt-auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { PostsModule } from './posts/posts.module';
+import { PostCategoriesModule } from './post-categories/post-categories.module';
+import { PostTagsModule } from './post-tags/post-tags.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import { PostsModule } from './posts/posts.module';
     ProfileModule,
     UsersModule,
     PostsModule,
+    PostCategoriesModule,
+    PostTagsModule,
   ],
   controllers: [AdminController],
   providers: [AdminService, { provide: APP_GUARD, useClass: JwtAuthGuard }],
