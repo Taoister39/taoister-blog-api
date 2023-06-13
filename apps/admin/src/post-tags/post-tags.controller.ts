@@ -32,7 +32,7 @@ export class PostTagsController {
 
   @Patch(':id')
   @ApiOperation({ summary: '更新文章標籤' })
-  update(@Param('id') id: string, updatePostTagDto: UpdatePostTagDto) {
+  update(@Param('id') id: string, @Body() updatePostTagDto: UpdatePostTagDto) {
     return this.postTagsService.update(id, updatePostTagDto);
   }
 
