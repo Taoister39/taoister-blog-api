@@ -8,9 +8,22 @@ import { Injectable } from '@nestjs/common';
 import { CreatePostTagDto } from 'apps/admin/src/post-tags/dto/create-post-tag.dto';
 import { FindPostTagDto } from 'apps/admin/src/post-tags/dto/find-post-tag.dto';
 import { Prisma } from '@prisma/client';
+import { UpdatePostTagDto } from 'apps/admin/src/post-tags/dto/update-post-tag.dto';
 
 @Injectable()
 export class PostTagsService {
+  delete(id: string) {
+    return this.dbService.postTag.delete({ where: { id } });
+  }
+  findOne(id: string) {
+    return this.dbService.postTag.findUnique({ where: { id } });
+  }
+  update(id: string, updatePostTagDto: UpdatePostTagDto) {
+    return this.dbService.postTag.update({
+      where: { id },
+      data: updatePostTagDto,
+    });
+  }
   async findMany(findPostTagDto: FindPostTagDto) {
     const {
       id,
