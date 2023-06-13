@@ -14,7 +14,7 @@ import { CreatePostDto } from 'apps/admin/src/posts/dto/create-post.dto';
 import { FindPostDto } from 'apps/admin/src/posts/dto/find-post.dto';
 import { UpdatePostDto } from 'apps/admin/src/posts/dto/update-post.dto';
 
-@Controller('v1/posts')
+@Controller('/posts')
 @ApiTags('文章')
 @ApiBearerAuth()
 export class PostsController {

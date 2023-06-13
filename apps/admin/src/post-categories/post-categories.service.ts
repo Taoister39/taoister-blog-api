@@ -8,9 +8,22 @@ import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { CreatePostCategoryDto } from 'apps/admin/src/post-categories/dto/create-post-category.dto';
 import { FindPostCategoryDto } from 'apps/admin/src/post-categories/dto/find-post-category.dto';
+import { UpdatePostCategoryDto } from 'apps/admin/src/post-categories/dto/update-post-category.dto';
 
 @Injectable()
 export class PostCategoriesService {
+  delete(id: string) {
+    return this.dbService.postCategory.delete({ where: { id } });
+  }
+  update(id: string, updatePostCategoryDto: UpdatePostCategoryDto) {
+    return this.dbService.postCategory.update({
+      where: { id },
+      data: updatePostCategoryDto,
+    });
+  }
+  findOne(id: string) {
+    return this.dbService.postCategory.findFirst({ where: { id } });
+  }
   async findMany(findPostCategoryDto: FindPostCategoryDto) {
     const {
       name,

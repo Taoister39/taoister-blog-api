@@ -21,5 +21,5 @@ export class FindPostTagDto extends SortPaginationDto {
     required: false,
     default: IS_DELETED_ENUM.NO,
   })
-  readonly isDeleted?: IS_DELETED_ENUM;
+  readonly isDeleted?: number;
 }

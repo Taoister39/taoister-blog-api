@@ -4,7 +4,7 @@ import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CreatePostTagDto } from 'apps/admin/src/post-tags/dto/create-post-tag.dto';
 import { FindPostTagDto } from 'apps/admin/src/post-tags/dto/find-post-tag.dto';
 
-@Controller('/v1/post_tags')
+@Controller('/post_tags')
 @ApiTags('文章標籤')
 @ApiBearerAuth()
 export class PostTagsController {

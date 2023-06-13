@@ -11,6 +11,8 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
+      // 不可以多出屬性，直接拋出異常
+      forbidNonWhitelisted: true,
       transformOptions: {
         // 查詢參數可以轉換成數字，根據ts類型
         enableImplicitConversion: true,

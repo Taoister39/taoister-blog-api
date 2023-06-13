@@ -1,11 +1,12 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { ProfileService } from './profile.service';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { CreateProfileDto } from 'apps/admin/src/profile/dto/create-profile.dto';
 import { UpdateProfileDto } from 'apps/admin/src/profile/dto/update-profile.dto';
 
 @Controller('profile')
 @ApiTags('博主信息')
+@ApiBearerAuth()
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
