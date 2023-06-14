@@ -35,7 +35,7 @@ export class PostsService {
   }
   async findMany(findPostDto: FindPostDto) {
     const {
-      id: paramId,
+      id,
       sortBy = POST_SORT_BY_ENUM.CREATED_TIME,
       order = Prisma.SortOrder.desc,
       title,
@@ -45,8 +45,6 @@ export class PostsService {
       offset = DEFAULT_OFFSET,
       limit = DEFAULT_LIMIT,
     } = findPostDto;
-
-    const id = paramId.trim();
 
     let publishedAt: Prisma.SortOrder,
       createdAt: Prisma.SortOrder,
