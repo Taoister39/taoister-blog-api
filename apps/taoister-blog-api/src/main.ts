@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { CLIENT_API, CLIENT_API_DOCS } from '@libs/common/constants/path';
+import { TransformInterceptor } from '@libs/common/interceptor/transform.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,6 +18,11 @@ async function bootstrap() {
       },
     }),
   );
+
+  // 用Next.js的話，可以不需要跨域
+  // app.enableCors();
+
+  app.useGlobalInterceptors(new TransformInterceptor());
 
   const logger = new Logger();
 

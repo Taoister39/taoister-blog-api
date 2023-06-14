@@ -44,10 +44,6 @@ export class PostsService {
 
     const req: Pick<Prisma.PostFindManyArgs, 'where' | 'orderBy'> = {
       where: {
-        title: {
-          contains: title, // 搜索功能
-        },
-        id,
         isPublished: IS_PUBLISHED_ENUM.YES,
         isDeleted: IS_DELETED_ENUM.NO,
       },
@@ -76,7 +72,7 @@ export class PostsService {
       },
     });
 
-    return { total: total, lists: lists };
+    return { total: total ?? 0, lists };
   }
   // 查詢單個文章
   findOne(id: string) {

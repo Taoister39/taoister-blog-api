@@ -22,10 +22,10 @@ export class PostsService {
       data: {
         ...updatePostDto,
         categories: {
-          connect: updatePostDto.categories.map((item) => ({ id: item })),
+          connect: updatePostDto.categories?.map((item) => ({ id: item })),
         },
         tags: {
-          connect: updatePostDto.tags.map((item) => ({ id: item })),
+          connect: updatePostDto.tags?.map((item) => ({ id: item })),
         },
       },
     });
