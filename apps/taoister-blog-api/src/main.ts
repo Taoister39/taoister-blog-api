@@ -21,7 +21,7 @@ async function bootstrap() {
   );
 
   // 用Next.js的話，可以不需要跨域
-  // app.enableCors();
+  app.enableCors();
 
   app.useGlobalInterceptors(new TransformInterceptor());
   app.useGlobalFilters(new HttpExceptionFilter());
