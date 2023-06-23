@@ -8,6 +8,7 @@ import { ConfigModule } from '@libs/config';
 import { ProfileModule } from 'apps/taoister-blog-api/src/v1/profile/profile.module';
 import { PostTagsModule } from './v1/post-tags/post-tags.module';
 import { PostCategoriesModule } from './v1/post-categories/post-categories.module';
+import { StatisticsModule } from './v1/statistics/statistics.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { PostCategoriesModule } from './v1/post-categories/post-categories.modul
     ProfileModule,
     PostTagsModule,
     PostCategoriesModule,
+    StatisticsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

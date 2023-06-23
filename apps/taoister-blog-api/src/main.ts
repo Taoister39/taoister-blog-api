@@ -4,6 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { CLIENT_API, CLIENT_API_DOCS } from '@libs/common/constants/path';
 import { TransformInterceptor } from '@libs/common/interceptor/transform.interceptor';
+import { HttpExceptionFilter } from '@libs/common/filter/http-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -23,6 +24,7 @@ async function bootstrap() {
   // app.enableCors();
 
   app.useGlobalInterceptors(new TransformInterceptor());
+  app.useGlobalFilters(new HttpExceptionFilter());
 
   const logger = new Logger();
 

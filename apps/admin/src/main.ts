@@ -4,6 +4,7 @@ import { AdminModule } from './admin.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ADMIN_API, ADMIN_API_DOCS } from '@libs/common/constants/path';
 import { TransformInterceptor } from '@libs/common/interceptor/transform.interceptor';
+import { HttpExceptionFilter } from '@libs/common/filter/http-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AdminModule);
@@ -21,6 +22,7 @@ async function bootstrap() {
   );
 
   app.useGlobalInterceptors(new TransformInterceptor());
+  app.useGlobalFilters(new HttpExceptionFilter());
 
   const logger = new Logger();
 
